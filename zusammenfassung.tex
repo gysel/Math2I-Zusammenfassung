@@ -143,20 +143,6 @@
 			antireflexiv    &   $\forall a \in A: (a,a) \notin R$
 		\end{tabular}
 	\end{feig}
-	
-	\begin{fmerke}[Darstellung von Relationen]
-	    \textbf{Als Matrix}\\
-	        Zeilen der Matrix stellen Elemente von A, Spalten Elemente von B dar. Eine \textbf{1} bedeutet vorhanden, eine \textbf{0} nicht vorhanden.\\[1mm]
-	        $M^{\leq} = \left[ \begin{array}{cccc}
-	                                1 & 1 & 1\\
-	                                0 & 1 & 1\\
-	                                0 & 0 & 1\\
-	                            \end{array} \right]$\\[1mm]
-	
-	    \textbf{Als bipartiter Graph}\\
-	        A und B werden als Knoten repräsentiert und es gibt eine Kante $(a, b)$ genau dann wenn $a R b$\\[2mm]
-	        Falls A = B als gerichteter Graph, das ist dann ein sog \textbf{Hasse-Diagramm}
-	\end{fmerke}
 
 	\end{multicols}
 
@@ -1024,6 +1010,40 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	\begin{fsatz}[Reduktion - nicht entscheidbar]
 	$A \leq B$, $A$ nicht entscheidbar $\Rightarrow B$ nicht entscheidbar
 	\end{fsatz}
+
+\subsection{Satz von Rice}
+	\begin{fsatz}[Satz von Rice]
+	Sei P eine nicht triviale Eigenschaft einer Turing-erkennbaren
+	Sprache, dann ist P nicht entscheidbar.
+	\end{fsatz}
+	
+	Der Satz von Rice besagt, dass es unmöglich ist, irgendeinen nichttrivialen Aspekt des funktionalen Verhaltens einer Turingmaschine algorithmisch zu entscheiden.
+	\\
+	
+	\textbf{Beispiel Primzahlprüfer}: Es ist entscheidbar, ob eine Zahl $n$ prim ist oder
+	nicht, man testet einfach jeden möglichen Teiler $< n$, wenn immer ein Rest bleibt,
+	ist die Zahl prim.
+	Dies ist natürlich kaum der effizienteste Algorithmus, tatsächlich gibt
+	es viele Alternativen, die wir in eine Menge zusammenfassen können:
+
+	\[
+	\text{\textsl{PRIMALITY-TESTER}}=
+	\left\{\langle M\rangle\;\left|\;
+	\begin{minipage}{2.15truein}
+	\raggedright
+	$M$ ist eine Turingmaschine und\\
+	ein korrekter Primzahltester
+	\end{minipage}
+	\right.\right\}.
+	\]
+	\textsl{PRIMALITY-TESTER} enthält also genau diejenigen Programme, welche
+	als Primzahlprüfer korrekt funktionieren.
+	
+	Gibt es ein Programm, welches beliebige Primzahlprüfer auf Korrektheit
+	testen kann? Wenn ja, dann ist \textsl{PRIMALITY-TESTER} entscheidbar.
+	Leider kann es kein solches Programm geben,
+	\textsl{PRIMALITY-TESTER} ist nicht entscheidbar, wie man mit dem Satz
+	von Rice einsehen kann.
 
 \subsection{Beispiele von Entscheidungsproblemen}
 	\textbf{Halte-Problem:}
