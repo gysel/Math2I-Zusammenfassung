@@ -1208,8 +1208,8 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	\end{fspec}	
 	
 	\begin{fspec}[Steiner-Tree]	
-	gegeben: Graph, Menge $M$ von Knoten im Graph, die besucht werden müssen, Startknoten, Zielknoten \\
-	gesucht: Kürzester Pfad zwischen Start und Ziel über Knoten aus $M$
+	gegeben: Graph, Menge $M$ von Knoten im Graph, die besucht werden müssen, Startknoten, Zielknoten und ein Gewicht für jede Kante \\
+	gesucht: Pfad zwischen Start und Ziel über Knoten aus $M$ mit minimalem Gesamtgewicht.
 	\end{fspec}	
 	
 	\begin{fspec}[Hitting-Set]	
@@ -1233,6 +1233,12 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	\begin{fspec}[Max-Cut]	
 	gegeben: gerichteter gewichteter Graph, Zahl $w$ \\
 	gesucht: Teilmenge von Knoten, deren Gewicht aufsummiert annähernd $w$ ist
+	\end{fspec}	
+			
+	\begin{fspec}[Sequencing]	
+	gegeben: Eine Menge von Jobs (mit Laufzeit, spätester Ausführung und einer Strafe
+	bei zu später Ausführung), eine maximale Strafsumme $k$ \\
+	gesucht: Eine Ausführungsreihenfolge bei der die Summe der Strafen $<k$
 	\end{fspec}	
 	
 	\end{multicols}
