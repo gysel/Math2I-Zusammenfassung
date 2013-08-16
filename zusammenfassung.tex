@@ -212,6 +212,11 @@
 		$L \subset \Sigma^*$ \\
 		Über jedem Alphabet gibt es eine leere Sprache $\emptyset$ und die Sprache $\Sigma^0 = \{\epsilon \}$
 	\end{fdef}
+	\begin{fdef}[Mengenoperationen]
+		Ist $L$ eine reguläre Sprache, dann ist auch $\bar L$ regulär.
+		Sind $L_1$ und $L_2$ regulär, dann ist auch $L_1\setminus L_2$
+		regulär.
+	\end{fdef}
 	
 	Beispiele... Primzahlen
 	
@@ -794,7 +799,9 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	\end{fdef}
 	
 	\begin{fdef}[Nichtdeterministische Turingmaschine]
-		Die Nichtdeterministische TM besitzt folgende Übergangsfunktion: $\delta: Q \times \Gamma \rightarrow \mathcal{P}(Q \times \Gamma \times \{ L,R \})$. Der Automat muss also bei jedem Übergang aus allen möglichen wählen.
+		Die nichtdeterministische TM besitzt folgende Übergangsfunktion: $\delta: Q \times \Gamma \rightarrow \mathcal{P}(Q \times \Gamma \times \{ L,R \})$. Der Automat muss also bei jedem Übergang aus allen möglichen wählen.
+		Jede nichtdeterministische Turingmaschine ist äquivalent zu einer deterministischen
+		Turingmaschine.
 	\end{fdef}
 	
 	\begin{fdef}[Entscheider]
