@@ -26,8 +26,8 @@
 
 \graphicspath{{./images/}}
 
-\title{Math1I\\HS10 HSR\\Zusammenfassung}
-\author{Josua Schmid}
+\title{Math2I\\Zusammenfassung}
+\author{Josua Schmid, Michael Gysel}
 
 \begin{document}
 %\maketitle
@@ -146,7 +146,6 @@
 
 	\end{multicols}
 
-\newpage
 \subsection{Äquivalenz- und Ordnungsrelationen}
 	\begin{multicols}{2}
 	
@@ -182,8 +181,6 @@
 
 	\end{multicols}
 
-
-\newpage
 \section{Reguläre Sprachen}
 
 \subsection{Sprachen}
@@ -232,7 +229,6 @@
 	\end{multicols}
 	
 
-\newpage
 \section{Endliche Automaten und reguläre Sprachen}
 	\begin{multicols}{2}
 
@@ -280,6 +276,7 @@
 	\end{multicols}	
 	
 \subsection{Rekonstruktion eines Automaten}
+	\begin{multicols}{2}
 	Gegeben: Sprache $L$ über $\Sigma$, $L \subset \Sigma^*$ \\
 	Rekonstruktion der Zustandsmenge $Q$ \\
 	Annahme: wir haben den Automaten schon gefunden
@@ -300,18 +297,23 @@
 		\includegraphics[scale=0.6]{rekonstruktion.png}
 	\end{falgo}	
 	
-	\begin{falgo}[Kartesischer Produktautomat]
-		Teilautomat $A_1$ für Sprache $L_1 = \{w \in \Sigma^* \mid |w|_0 \text{gerade}\}$ \\
-		\includegraphics[scale=0.6]{produktautomat_1.png} \\
-		Teilautomat $A_2$ für Sprache $L_2 = \{w \in \Sigma^* \mid w \text{ ist eine durch 3 teilbare Binärzahl} \}$ \\
-		\includegraphics[scale=0.6]{produktautomat_2.png} \\
-		Der Produktautomat \\
-		\includegraphics[scale=0.6]{produktautomat_3.png} \\
-		Produktautomat umformuliert sodass er auch $L_1 \cup L_2$ akeptiert \\
-		\includegraphics[scale=0.6]{produktautomat_4.png}
-	\end{falgo}
-
-\subsection{Automaten-Minimierung} \label{minimizeautomat}
+	\textbf{Kartesischer Produktautomat}
+	\\
+	
+	Teilautomat $A_1$ für Sprache $L_1 = \{w \in \Sigma^* \mid |w|_0 \text{gerade}\}$ \\
+	\includegraphics[scale=0.6]{produktautomat_1.png} \\
+	Teilautomat $A_2$ für Sprache $L_2 = \{w \in \Sigma^* \mid w \text{ ist eine durch 3 teilbare Binärzahl} \}$ \\
+	\includegraphics[scale=0.6]{produktautomat_2.png} \\
+	Der Produktautomat \\
+	\includegraphics[scale=0.6]{produktautomat_3.png} \\
+	Produktautomat umformuliert sodass er auch $L_1 \cup L_2$ akeptiert \\
+	\includegraphics[scale=0.6]{produktautomat_4.png}
+		
+	\end{multicols}
+\newpage
+\subsection{Automaten-Minimierung}
+	\begin{multicols}{2}
+	\label{minimizeautomat}
 	\begin{fdef}[Minimaler Automat]
 	DEA $A$, $L(A)=L$ mit möglichst wenigen Zuständen.
 	\end{fdef}
@@ -328,7 +330,6 @@
 	\end{enumerate}
 	\end{falgo}
 	
-	%TODO: Multicols	
 	\begin{fmerke}[Beispiel]
 	\includegraphics[scale=0.7]{minimal_dea.png}
 	\begin{tabular}{lllll}
@@ -341,8 +342,9 @@
 	Jeder Zustand ist mit sich selbst äquivalent. \\
 	Endzustände sind nicht mit Zuständen äquivalent, welche keine Endzustände sind. \\
 	In diesem Beispiel bleiben nur noch 2 Kombinationen (X) offen. Von beiden Paaren wird immer auf den jeweils anderen oder z3 überführt. Daher sind die Zustände äquivalent. \\
-	\includegraphics[scale=0.7]{minimal_dea_2.png}
+	\includegraphics[scale=0.6]{minimal_dea_2.png}
 	\end{fmerke}
+	\end{multicols}
 	
 \subsection{Regularität}
 	\begin{multicols}{2}
@@ -433,8 +435,7 @@
 		$$F' = \{M \in Q' \mid M \cap F \neq \emptyset \}$$
 	\end{fsatz}
 	
-	\begin{falgo}[Äquivalenz zweier Automaten]
-	Zwei Automaten können folgendermassen auf Äquivalenz überprüft werden:
+	\begin{falgo}[Überprüfung der Äquivalenz zweier Automaten]
 	\begin{enumerate}
 		\item ev. NEA in DEA umwandeln
 		\item Minimaler Automat erstellen (siehe \ref{minimizeautomat})
@@ -468,8 +469,10 @@
 		Stern-Operation & $r_1^*$   & $L(r_1)^* =$ beliebige Anzahl \\\hline
 	\end{tabular}
 	\end{multicols}
-	
+
+\newpage	
 \subsection{Verallgemeinerter NEA (VNEA)}
+	\begin{multicols}{2}
 	Ein VNEA ist ein NEA, der reguläre Ausdrücke akzeptiert. Der VNEA besteht aus den zwei Zuständen $q_{\text{start}}$ und $q_{\text{accept}}$, welche mit dem $r$-Pfeil verbunden sind.	
 	\begin{falgo}[Umwandlung: NEA $\rightarrow$ VNEA]
 		\begin{enumerate}
@@ -479,27 +482,26 @@
 		\end{enumerate}
 	\end{falgo}
 	
-	\begin{falgo}[Beispiel]
-		Für das Beispiel wird ein DEA anstelle eines NEA verwendet. Das Prinzip bleibt aber dasselbe. \\		
-		\includegraphics[scale=0.6]{vnea_beispiel_1.png} \\
-		\\
-		Im ersten Schritt fügen wir die neuen Start- und Akzeptierzustände hinzu, die Zustände 2 und 3 sind damit nicht mehr Akzeptierzustände. \\
-		\includegraphics[scale=0.6]{vnea_beispiel_2.png} \\
-		\\
-		Jetzt entfernen wir nacheinander alle ''inneren'' Zustände. Wir beginnen mit dem Zustand 1, dabei sind die Pfade S -1-2, S -1-3, 2-1-3, 3-1-2, 2-1-2 und 3-1-2 zu
+	Für das Beispiel wird ein DEA anstelle eines NEA verwendet. Das Prinzip bleibt aber dasselbe. \\		
+	\includegraphics[scale=0.6]{vnea_beispiel_1.png} \\
+	\\
+	Im ersten Schritt fügen wir die neuen Start- und Akzeptierzustände hinzu, die Zustände 2 und 3 sind damit nicht mehr Akzeptierzustände. \\
+	\includegraphics[scale=0.5]{vnea_beispiel_2.png} \\
+	\\
+	Jetzt entfernen wir nacheinander alle ''inneren'' Zustände. Wir beginnen mit dem Zustand 1, dabei sind die Pfade S -1-2, S -1-3, 2-1-3, 3-1-2, 2-1-2 und 3-1-2 zu
 berücksichtigen. \\
-		\includegraphics[scale=0.6]{vnea_beispiel_3.png} \\
-		\\
-		Jetzt wird der Zustand 2 entfernt, dabei sind die Pfade S -2-A, S -2-3, 3-2-A, und 3-2-3 zu berücksichtigen. \\
-		\includegraphics[scale=0.6]{vnea_beispiel_4.png} \\
-		\\
-		Jetzt muss nur noch der Zustand 3 entfernt werden. \\
-		\includegraphics[scale=0.6]{vnea_beispiel_5.png}
-	\end{falgo}
+	\includegraphics[scale=0.5]{vnea_beispiel_3.png} \\
+	\\
+	Jetzt wird der Zustand 2 entfernt, dabei sind die Pfade S -2-A, S -2-3, 3-2-A, und 3-2-3 zu berücksichtigen. \\
+	\includegraphics[scale=0.5]{vnea_beispiel_4.png} \\
+	\\
+	Jetzt muss nur noch der Zustand 3 entfernt werden. \\
+	\includegraphics[scale=0.35]{vnea_beispiel_5.png}
+		
+	\end{multicols}
 
 
 
-\newpage
 \section{Stackautomaten und Kontextfreie Sprachen}
 
 
@@ -587,7 +589,7 @@ berücksichtigen. \\
 	
 \subsection{Parsing}
 	\begin{fmerke}[Parse Tree]
-	Der Ableitungsbaum eines Wortes einer kontextfreien Sprache ist eine Darstellung der verwendeten Produktionsregeln in Baum-Struktur. Dabei wird ein String ,,geparst''.
+	Der Ableitungsbaum eines Wortes einer kontcfg to stackextfreien Sprache ist eine Darstellung der verwendeten Produktionsregeln in Baum-Struktur. Dabei wird ein String ,,geparst''.
 	
 	ev. Bsp zu Ableitungsbaum
 
@@ -819,6 +821,7 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	\end{multicols}	
 	
 \subsection{Aufzähler}
+	\begin{multicols}{2}
 	\begin{fdef}[Aufzähler]
 	Eine TM mit einem Drucker heisst Aufzähler \\
 	$\Rightarrow$ Ausgaben von beliebig vielen Wörtern auf den Drucker \\
@@ -840,9 +843,11 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	\end{enumerate}
 	Falls das Wort zur Sprache gehört, wird der Aufzähler es früher oder später aufzählen.
 	\end{falgo}
+	\end{multicols}	
 
 \subsection{Berechenbarkeit / Abzählbarkeit}
 	Eine Zahl ist berechenbar, wenn ein Aufzähler existiert, der ,,mit der Zeit'' alle Stellen der Zahl ausdruckt.
+	
 	\begin{multicols}{2}
 	\begin{fsatz}[Berechenbare Zahlen]
 	\begin{itemize}
@@ -902,19 +907,21 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	Es gibt nur abzählbar viele Turing Maschinen $\Rightarrow$ die meisten Sprachen können nicht mit einer Turing Maschine erkannt werden.
 
 	
-	
-\newpage
 \section{Entscheidbarkeit}
 
-
+	\begin{multicols}{2}
+	
 	\begin{fmerke}[Übersicht über Sprachen]
 	regulär $\subset$ kontextfrei $\subset$ entscheidbar (rekursiv) $\subset$ TM erkennbar (rekursiv aufzählbar) $\subset$ überabzählbar
 	\end{fmerke}
 	
 	Ein Problem muss zuerst immer umformuliert werden zu einem Sprachproblem $A$.
 	z.B.: ,,Wird ein Wort $w$ von DEA $A$ akzeptiert?''
+	
+	\end{multicols}
 
 \subsection{Entscheidbare Probleme für reguläre Sprachen}
+	\begin{multicols}{2}
 	\begin{falgo}[Akzeptanzproblem]
 		$A_{\text{DEA}} = \{ \langle B,w \rangle \mid \text{$B$ ist ein DEA, $B$ akzeptiert $w$} \}$ \\
 		$A_{\text{NEA}} = \{ \langle B,w \rangle \mid \text{$B$ ist ein NEA, $B$ akzeptiert $w$} \}$ \\
@@ -947,8 +954,10 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 		\end{enumerate}
 		Beweis 2: über Mengendefinition. Für Mengendefinitionen gibt es einen Entscheider.
 	\end{falgo}
+	\end{multicols}
 
 \subsection{Entscheidbare Probleme für kontextfreie Sprachen}
+	\begin{multicols}{2}
 	\begin{falgo}[Akzeptanzproblem]
 		$A_{\text{CFG}} = \{ \langle G,w \rangle | \text{die Kontextfreie Grammatik $G$ erzeugt $w$ } \}$ \\
 		Beweis 1: Der CYK-Algorithmus (Kapitel 4) entscheidet $A_{\text{CFG}}$ \\
@@ -972,8 +981,10 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	
 	\vspace{2mm}
 	\textbf{Achtung:} Gleichheitsproblem: $EQ_{\text{CFG}} = \{ \langle G,H \rangle \mid \text{$G$ und $H$ sind Kontextfreie Grammatiken und $L(G)=L(H)$} \}$ ist \textbf{nicht} entscheidbar.
+	\end{multicols}
 
 \subsection{Akzeptanzproblem für TM}
+	\begin{multicols}{2}
 	\begin{fsatz}
 	Akzeptanzproblem für Turing Maschinen ist nicht lösbar:
 	$$A_{TM} = \{ \langle M,w \rangle | \text{ $M$ ein TM, $w$ wird akz. vom $M$} \}$$
@@ -998,6 +1009,7 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	Folgendes ist nicht entscheidbar:
 	$$L = \{ \langle M \rangle | M \text{eine TM, } M \text{ akzeptiert } \epsilon \}$$
 	\end{fsatz}
+	\end{multicols}
 
 \subsection{Reduktion}
 	Suche Relation $\leq$ zwischen Sprachen. (Entscheide, ob ein Wort aus $A$ in $B$ entscheidbar ist)
@@ -1066,9 +1078,6 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	}$$
 	
 
-	
-
-\newpage
 \section{Komplexität}
 
 
@@ -1116,6 +1125,7 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	\end{falgo}
 	
 	\textbf{Beispiele für polynomielle Reduktion:}
+	\begin{multicols}{2}
 	\begin{itemize}
 		\item \textbf{Studenplanproblem $S$ und Färbeproblem:} 
 			$$S \leq_P \textit{VERTEX-COLORING}$$
@@ -1123,10 +1133,10 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 		\item \textbf{3SAT und CLIQUE:} \\
 			Konstruiere einen Graph aus einer KNF und beschreibe eine Clique drauf.
 	\end{itemize}
+	\end{multicols}
 	
-	\newpage
 \subsection{Liste von wichtigen Problemen}
-	\begin{multicols}{2}	
+	\begin{multicols}{3}	
 	
 	\begin{fspec}[SAT (satisfyablility)]
 	Gegeben: logische Formel in KNF \\
@@ -1149,6 +1159,14 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	2.Problem: lange Klauseln $(x_1 \vee x_2 \vee x_3 \vee \dots \vee x_n) = \phi \vee \Phi = (\phi \vee z) \wedge (\not z \vee \Phi)$ gleichzeitig erfülltbar \\
 	wiederholte Anwendung bis CNF 
 	\end{fspec}
+		
+	\begin{fspec}[CLIQUE]
+	In einem Graphen muss jedes Knoten mit jedem verbunden sein.
+	\end{fspec}
+	
+	\begin{fspec}[Vertex-Cover]
+	Wie viele Knoten muss man markieren, dass alle Kanten an markierte Knoten anliegen?
+	\end{fspec}
 	
 	\begin{fspec}[BIP: binary integer programming (Linalg LST)]
 	Gegeben: $C$ eine ganzahlige Matrix, $d$ ein ganzzahliger Vektor \\
@@ -1157,14 +1175,6 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	Beweis: SUBSET-SUM $\leq_P$ BIP
 	$$\langle S,t \rangle \rightarrow C=(s_1,s_2, \dots , s_n) d= (t) $$
 	$$ x = \begin{pmatrix} x_1 \\ x_2 \\ x_3\end{pmatrix} \Rightarrow Cx = \sum\limits_{}^{s_i \in T}(s_i) = t$$
-	\end{fspec}
-	
-	\begin{fspec}[CLIQUE]
-	In einem Graphen muss jedes Knoten mit jedem verbunden sein.
-	\end{fspec}
-	
-	\begin{fspec}[Vertex-Cover]
-	Wie viele Knoten muss man markieren, dass alle Kanten an markierte Knoten anliegen?
 	\end{fspec}
 	
 	\begin{fspec}[HAMILTON-PATH]
@@ -1203,6 +1213,9 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	\begin{fspec}[Clique-Cover]	
 	gleich wie CLIQUE, aber der Graph wird als  Menge von Knoten dargestellt
 	\end{fspec}	
+
+	\end{multicols}
+	\begin{multicols}{3}
 		
 	\begin{fspec}[3D-Matching]	
 	gegeben: Menge $M$, 3 Teilmengen von $M$ \\
@@ -1303,29 +1316,11 @@ boolean cyk(Variable \(A\), Wort \(w\)) \{
 	LOOP y DO .. END
 	\end{verbatim}
 	
+	LOOP ist nicht Turing-vollständig!
+	
 	\end{multicols}
 	\end{fmerke}	
-	
-	\textbf{LOOP ist nicht Turing-vollständig}
-	
-	\begin{fmerke}[WHILE, GOTO]
-	\begin{multicols}{2}
-	WHILE und GOTO sind äquivalent und Turing-vollständig. \\
-	Beweis über Simulator: Einfache While-Schlaufe, die nicht terminiert.
-	
-	\columnbreak
-	\textbf{Syntaxbeispiel:}
-	
-	\begin{verbatim}
-	y := x;
-	WHILE y > 0 DO .. ; y := y - 1 END
-	\end{verbatim}
-	
-	\begin{verbatim}
-	Ml   : x := c;
-	Ml+1 : IF x := c THEN GOTO Mj
-	\end{verbatim}
-	\end{multicols}
-	\end{fmerke}
+	WHILE und GOTO sind äquivalent und Turing-vollständig.
+		
 
 \end{document}
